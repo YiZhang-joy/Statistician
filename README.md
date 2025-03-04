@@ -1,3 +1,6 @@
 # Statistician
-Newcombe wilson
+Newcombe wilson method.
+
 The code is suitable for cases where the rate in some stratum is 100% or 0%.
+
+
