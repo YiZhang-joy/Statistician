@@ -2,9 +2,6 @@ library(dplyr)
 library(rlang)
 library(ratesci)
 
-#结局指标是0和1赋值
-f_result$pingjia <- as.numeric(f_result$pingjia)
-
 #参数调试
 # data=f_result
 # treatment="ARM"
@@ -209,10 +206,7 @@ stratCI <- function(data, treatment, strata, response, level, AA, BB) {
   return(list(Strata_sum=Strata_sum,Crude_result=Crude_result,Adj_result=Adj_result))
 }
 
-# stratCI(data=f_result, treatment=f_result$ARM, strata=f_result$SITEID, response=f_result$pingjia, level=0.05)
+#结局指标是0和1赋值
+f_result$pingjia <- as.numeric(f_result$pingjia)
 stratCI(data=f_result, treatment="ARM", strata="SITEID", response="pingjia", level=0.05,AA="A",BB="B")
 
-
-fff <- read.csv("D:/心腔内超声/CMH率差/f_result1.csv")
-fff$pingjia <- as.numeric(fff$pingjia)
-stratCI(data=fff, treatment="ARM", strata="SITEID", response="pingjia", level=0.05,AA="A",BB="B")
